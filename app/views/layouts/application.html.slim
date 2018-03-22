@@ -9,8 +9,12 @@ html
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 
-    
+    = yield :javascripts
+    = yield :styles
 
+    = js_from_controller(params[:controller])
+    = js_from_action(params[:controller], params[:action])
   body
+    = render partial: 'layouts/top_bar/header'
     = yield
   

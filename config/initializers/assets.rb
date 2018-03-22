@@ -8,7 +8,14 @@ Rails.application.config.assets.version = '1.0'
 # Add Yarn node_modules folder to the asset load path.
 Rails.application.config.assets.paths << Rails.root.join('node_modules')
 
+
 # Precompile additional assets.
-# application.js, application.css, and all non-JS/CSS in the app/assets
-# folder are already added.
-# Rails.application.config.assets.precompile += %w( admin.js admin.css )
+# application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
+# Rails.application.config.assets.precompile += %w( search.js )
+Rails.application.config.assets.precompile << proc do |path|
+  blacklist = ['node_modules', 'gems', 'modules/', 'templates/', 'vendor/']
+  @assets ||= Rails.application.assets || Sprockets::Railtie.build_environment(Rails.application)
+  full_path = @assets.resolve(path)
+
+  (path =~ %r{(^(?:(?!\/_|^_).)*$)}) && blacklist.none? { |word| !full_path.include?('fonts') && full_path.include?(word) }
+end
