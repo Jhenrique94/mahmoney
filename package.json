@@ -2,6 +2,7 @@
   "name": "mahmoney",
   "private": true,
   "dependencies": {
-    "@fortawesome/fontawesome": "^1.1.4"
+    "@fortawesome/fontawesome": "^1.1.4",
+    "font-awesome-5-css": "^5.0.8"
   }
 }
