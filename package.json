@@ -2,7 +2,12 @@
   "name": "mahmoney",
   "private": true,
   "dependencies": {
-    "@fortawesome/fontawesome": "^1.1.4",
-    "font-awesome-5-css": "^5.0.8"
+    "@rails/webpacker": "3.4",
+    "vue": "^2.5.16",
+    "vue-loader": "^14.2.2",
+    "vue-template-compiler": "^2.5.16"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "2.11.2"
   }
 }
